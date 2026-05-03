@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Rimjhim 🎉</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 20px;
+    margin-top: 60px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    animation: glow 2s infinite alternate;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    background: white;
+    color: #ff4d6d;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #ff4d6d;
+    color: white;
+}
+
+.hidden {
+    display: none;
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #fff; }
+    to { text-shadow: 0 0 20px #fff, 0 0 30px #ff4d6d; }
+}
+
+/* Confetti */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: white;
+    top: -10px;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🎂 Happy Birthday Rimjhim 🎂</h1>
+
+    <p>
+        My dear <b>sweetheart</b> 💖,<br>
+        On this special day, I just want to say...<br>
+        <b>I LOVE YOU</b> so much ❤️<br><br>
+        You are the reason behind so many smiles and happiness.
+    </p>
+
+    <button class="btn" onclick="surprise()">Tap for Surprise 🎁</button>
+
+    <div class="hidden" id="surpriseText">
+        🎉 You are amazing, beautiful, and truly special! 🎉<br><br>
+
+        🌟 <b>Motivational Message:</b><br>
+        Always believe in yourself, Rimjhim.<br>
+        You are stronger than you think, smarter than you know,<br>
+        and capable of achieving anything you dream of.<br>
+        Keep shining and never stop smiling 💫
+    </div>
+</div>
+
+<script>
+function surprise() {
+    document.getElementById("surpriseText").style.display = "block";
+
+    // Confetti animation
+    for (let i = 0; i < 100; i++) {
+        let confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        document.body.appendChild(confetti);
+
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        confetti.style.backgroundColor = 
+            ["#fff", "#ff0", "#0ff", "#f0f"][Math.floor(Math.random() * 4)];
+
+        setTimeout(() => confetti.remove(), 5000);
+    }
+}
+</script>
+
+</body>
+</html>
